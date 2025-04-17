@@ -70,4 +70,3 @@ class Television:
             return f"Power = [{self.status}], Channel = [{self.channel}], Volume = [0]"
         else:
             return f"Power = [{self.status}], Channel = [{self.channel}], Volume = [{self.volume}]"
-        
