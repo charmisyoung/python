@@ -6,67 +6,66 @@ class Television:
 
 
     def __init__(self):
-        self.status = False
-        self.muted = False
-        self.volume = self.MIN_VOLUME
-        self.channel = self.MIN_CHANNEL
+        self.__status = False
+        self.__muted = False
+        self.__volume = self.__MIN_VOLUME
+        self.__channel = self.__MIN_CHANNEL
 
 
     def power(self):
-        self.status = not self.status
+        self.__status = not self.__status
 
 
     def mute(self):
-        if not self.status:
+        if not self.__status:
             return
-        self.muted = not self.muted
+        self.__muted = not self.__muted
 
 
     def channel_up(self):
-        if not self.status:
+        if not self.__status:
             return
 
-        if self.channel == self.MAX_CHANNEL:
-                self.channel = self.MIN_CHANNEL
+        if self.__channel == self.__MAX_CHANNEL:
+                self.__channel = self.__MIN_CHANNEL
         else:
-            self.channel += 1
+            self.__channel += 1
 
 
     def channel_down(self):
-        if not self.status:
+        if not self.__status:
             return
 
-        if self.status:
-            if self.channel == self.MIN_CHANNEL:
-                self.channel = self.MAX_CHANNEL
-            else:
-                self.channel -= 1
+        if self.__channel == self.__MIN_CHANNEL:
+            self.__channel = self.__MAX_CHANNEL
+        else:
+            self.__channel -= 1
 
 
     def volume_up(self):
-        if not self.status:
+        if not self.__status:
             return
 
-        if self.muted:
-            self.muted = False
+        if self.__muted:
+            self.__muted = False
 
-        if self.volume < self.MAX_VOLUME:
-            self.volume += 1
+        if self.__volume < self.__MAX_VOLUME:
+            self.__volume += 1
 
 
     def volume_down(self):
-        if not self.status:
+        if not self.__status:
             return
 
-        if self.muted:
-            self.muted = False
+        if self.__muted:
+            self.__muted = False
 
-        if self.volume > self.MIN_VOLUME:
-            self.volume -= 1
+        if self.__volume > self.__MIN_VOLUME:
+            self.__volume -= 1
 
 
     def __str__(self):
-        if self.muted:
-            return f"Power = [{self.status}], Channel = [{self.channel}], Volume = [0]"
+        if self.__muted:
+            return f"Power = [{self.__status}], Channel = [{self.__channel}], Volume = [0]"
         else:
-            return f"Power = [{self.status}], Channel = [{self.channel}], Volume = [{self.volume}]"
+            return f"Power = [{self.__status}], Channel = [{self.__channel}], Volume = [{self.__volume}]"
