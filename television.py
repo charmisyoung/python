@@ -1,12 +1,6 @@
 class Television:
     """
     A class that carries the basic functions of a television set.
-
-    Class variables:
-    MIN_VOLUME: The lowest setting possible for volume level.
-    MAX_VOLUME: The highest setting possible for volume level.
-    MIN_CHANNEL: The lowest-numbered channel available.
-    MAX_CHANNEL = The highest-numbered channel available.
     """
 
     MIN_VOLUME: int = 0
@@ -18,10 +12,6 @@ class Television:
     def __init__(self) -> None:
         """
         Method to set default values of the television.
-        :param status: Indicates whether the television is on or off.
-        :param muted: Indicates whether the television is muted or un-muted (no volume or previously set volume)
-        :param volume: Indicates/sets the volume level of the television
-        :param channel: Indicates/sets the channel value that the television is set to
         """
         self.__status: bool = False
         self.__muted: bool = False
@@ -107,10 +97,9 @@ class Television:
 
     def __str__(self) -> str:
         """
-        :return: string of the current status of the television's settings.
         If muted, show volume 0.
         """
         if self.__muted:
-            return f"Power = [{self.__status}], Channel = [{self.__channel}], Volume = [0]"
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = 0'
         else:
-            return f"Power = [{self.__status}], Channel = [{self.__channel}], Volume = [{self.__volume}]"
+            return f'Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}'
